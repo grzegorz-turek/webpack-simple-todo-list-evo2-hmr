@@ -8,7 +8,7 @@
     "init:dirs": "mkdirp sass css vendor images js",
     "init:files": "touch README.md index.html sass/style.scss js/script.js",
     "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
-    "start": "webpack --env development",
+    "start": "webpack-dev-server --hot --env development",
     "build": "webpack --env production"
   },
   "keywords": [
@@ -27,9 +27,11 @@
     "optimize-js-plugin": "0.0.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-hot-loader": "^4.12.13",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.1",
-    "webpack-cli": "^3.3.8"
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
     "uuid": "^3.3.3"
