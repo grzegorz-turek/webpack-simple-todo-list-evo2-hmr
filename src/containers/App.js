@@ -1,49 +1,26 @@
 import React from 'react';
-import uuid from 'uuid';
-import style from './App.css';
-import Title from '../components/Title';
-import TodoList from '../components/TodoList';
-import style2 from '../components/TodoList.css';
+import Board from '../components/Board';
 import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data: [
-                {
-                    text: 'wash my cat',
-                    id: 1
-                },
-                {
-                    text: 'wash my \'97 VW Passat TDI',
-                    id: 2
-                },
-                {
-                    text: 'wash my smelly foot',
-                    id: 3
-                }
-            ]
+            initialBoard: '4.51..9787184.96.56.9875...174253869856917...3926.45179.134.756267591….43768192',
+            board: '4.51..9787184.96.56.9875...174253869856917...3926.45179.134.756267591....43768192',
         };
     }
-    addTodo(val){
-        const todo = {
-            text: val,
-            id: uuid.v4(),
-        };
-        const data = [...this.state.data, todo];
-        this.setState({data});
-    }
-    removeTodo(id) {
-        const remainder = this.state.data.filter(todo => todo.id !== id);
-        this.setState({data: remainder});
-    }
+    
     render() {
         return (
-            <div className={style.TodoApp}>
-                <Title propsNoOfItems={this.state.data.length} />
-                <div className={style2.TodoListFormatting}>
-                    <TodoList propsTodoList={this.state.data} todoRemoval={this.removeTodo.bind(this)} />
+            <div className='App'>
+                <h1>Sudoku</h1>
+                <Board initialBoard={this.state.initialBoard} board={this.state.board} />
+                <div className='buttons'>
+                    <button>Check</button>
+                    <button>New Game</button>
+                    <button>Solve</button>
+                    <button>Restart</button>
                 </div>
             </div>
         );
